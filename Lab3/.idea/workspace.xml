@@ -20,7 +20,7 @@
   </component>
   <component name="ProjectId" id="1SuSm5uRIQzn2FFGgjBu0vnPy7e" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../OOP_lab02-Ish1da/Lab2/src/com/company/Task1.java" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -45,6 +45,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
