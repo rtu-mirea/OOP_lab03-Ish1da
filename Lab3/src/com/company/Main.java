@@ -40,6 +40,7 @@ public class Main {
                     break;
                 }
                 case 1: {
+                    in.nextLine();
                     System.out.println("Введите новое имя");
                     String n = in.nextLine();
                     System.out.println("Введите новый логин");
@@ -50,17 +51,19 @@ public class Main {
                     break;
                 }
                 case 2: {
+                    in.nextLine();
                     System.out.println("Введите логин");
                     String l = in.nextLine();
                     System.out.println("Введите пароль");
                     String p = in.nextLine();
-                    if (ts.findUser(p, l)) System.out.println("Вы успешно вошли под именем " + ts.getCurrentUser());
+                    if (ts.findUser(p, l)) System.out.println("Вы успешно вошли под именем " + ts.getCurrentUser().getName());
                     else System.out.println("Неверный логин иили пароль");
                     break;
                 }
                 case 3: {
                     if (ts.getCurrentUser().getName() == "admin") System.out.println("Администратор не может участвовать в торгах");
                     else{
+                        in.nextLine();
                         System.out.println("Введите название товара");
                         String pt = in.nextLine();
                         System.out.println("Введите цену");
@@ -86,44 +89,46 @@ public class Main {
                 }
                 case 5: {
                     for (Request rq : ts.sellerRequests) {
-                        System.out.println(rq.getProduct() + " цена: " + rq.getPrice() + " кол-во: " + rq.getCount() + " продавец: " + rq.getRequester().getName());
+                        System.out.println(" товар: " + rq.getProduct() + " цена: " + rq.getPrice() + " кол-во: " + rq.getCount() + " продавец: " + rq.getRequester().getName());
                     }
                     break;
                 }
                 case 6: {
                     for (Request rq : ts.buyerRequests) {
-                        System.out.println(rq.getProduct() + " цена: " + rq.getPrice() + " кол-во: " + rq.getCount() + " покупатель: " + rq.getRequester().getName());
+                        System.out.println(" товар: " + rq.getProduct() + " цена: " + rq.getPrice() + " кол-во: " + rq.getCount() + " покупатель: " + rq.getRequester().getName());
                     }
                     break;
                 }
                 case 7: {
                     for (Request rq : done) {
-                        System.out.println(rq.getProduct() + " цена: " + rq.getPrice() + " владелец: " + rq.getRequester().getName());
+                        if(rq.getType()==0) System.out.print("Покупка ");
+                        else System.out.print("Продажа ");
+                        System.out.println(" товар: " + rq.getProduct() + " цена: " + rq.getPrice() + " исполнитель: " + rq.getRequester().getName());
                     }
                     break;
                 }
                 case 8: {
-                    ts.processRequests();
+                    done.addAll(ts.processRequests());
                     break;
                 }
                 case 9: {
                     ts.addUser("1", "1","1");
                     ts.findUser("1","1");
-                    ts.sellerRequests.add(new Request(ts.getCurrentUser(), "2", 1, 10,1));
-                    ts.sellerRequests.add(new Request(ts.getCurrentUser(), "3", 1, 10,1));
-                    ts.sellerRequests.add(new Request(ts.getCurrentUser(), "4", 1, 10,1));
-                    ts.sellerRequests.add(new Request(ts.getCurrentUser(), "5", 1, 10,1));
-                    ts.sellerRequests.add(new Request(ts.getCurrentUser(), "6", 1, 10,1));
+                    ts.sellerRequests.add(new Request(ts.getCurrentUser(), "2", 10, 1,1));
+                    ts.sellerRequests.add(new Request(ts.getCurrentUser(), "3", 10, 1,1));
+                    ts.sellerRequests.add(new Request(ts.getCurrentUser(), "4", 10, 1,1));
+                    ts.sellerRequests.add(new Request(ts.getCurrentUser(), "5", 10, 1,1));
+                    ts.sellerRequests.add(new Request(ts.getCurrentUser(), "6", 10, 1,1));
                     ts.addUser("2", "2","2");
                     ts.findUser("2","2");
-                    ts.buyerRequests.add(new Request(ts.getCurrentUser(), "2", 1, 8,0));
-                    ts.buyerRequests.add(new Request(ts.getCurrentUser(), "3", 1, 11,0));
-                    ts.buyerRequests.add(new Request(ts.getCurrentUser(), "4", 1, 10,0));
+                    ts.buyerRequests.add(new Request(ts.getCurrentUser(), "2", 8, 1,0));
+                    ts.buyerRequests.add(new Request(ts.getCurrentUser(), "3", 11, 1,0));
+                    ts.buyerRequests.add(new Request(ts.getCurrentUser(), "4", 10, 1,0));
                     ts.addUser("3", "3","3");
                     ts.findUser("3","3");
-                    ts.buyerRequests.add(new Request(ts.getCurrentUser(), "2", 1, 9,0));
-                    ts.buyerRequests.add(new Request(ts.getCurrentUser(), "3", 1, 13,0));
-                    ts.buyerRequests.add(new Request(ts.getCurrentUser(), "4", 1, 10,0));
+                    ts.buyerRequests.add(new Request(ts.getCurrentUser(), "2", 9, 1,0));
+                    ts.buyerRequests.add(new Request(ts.getCurrentUser(), "3", 13, 1,0));
+                    ts.buyerRequests.add(new Request(ts.getCurrentUser(), "4", 10, 1,0));
                     break;
                 }
                 case 111: {

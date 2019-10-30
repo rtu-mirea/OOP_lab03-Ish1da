@@ -33,6 +33,10 @@ public class Request {
         return count;
     }
 
+    public void setCount(int count) {
+        this.count = count;
+    }
+
     public int getType() {
         return type;
     }
